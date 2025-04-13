@@ -19,7 +19,7 @@ This will launch bw serve and expose it through an authenticated https server us
 ```sh
 docker run -it --rm \
   -v "$HOME/.config/Bitwarden CLI:/root/.config/Bitwarden CLI" \
-  -p 8080:8080 \
+  -p 127.0.0.1:8080:8080 \
   --name bw-proxy bw-proxy:latest
 ```
 
@@ -28,7 +28,7 @@ docker run -it --rm \
 Copy the TLS certificate from outside your Docker container to enable encrypted HTTPS.
 
 ```sh
-docker run -d -it --rm -v $HOME/.config/Bitwarden\ CLI:/root/.config/Bitwarden\ CLI -p 8080:8080 --name bw-proxy bw-proxy:latest
+docker run -it --rm -v $HOME/.config/Bitwarden\ CLI:/root/.config/Bitwarden\ CLI -p 127.0.0.1:8080:8080 --name bw-proxy bw-proxy:latest
 ```
 
 You will now have a file in this repo called root.crt. You can test the server with
