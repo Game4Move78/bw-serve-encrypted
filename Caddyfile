@@ -1,0 +1,9 @@
+https://localhost:8080 {
+    tls internal
+                 
+    basicauth {
+        CADDY_USER
+    }
+
+    reverse_proxy 127.0.0.1:8087
+}
